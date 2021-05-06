@@ -1,6 +1,7 @@
 # react-store
 
-Tiny state manager for react/preact programming infrastructure
+Tiny state manager for react/preact programming infrastructure. Inspired by [storeon](https://github.com/storeon/storeon)
+
 - Based on react/hooks module
 - compact: 
   - less then 500 bytes for preact (minified)
