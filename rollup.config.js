@@ -21,13 +21,13 @@ export default {
 		// name: 'states'
 	},
 	plugins: [
-		// alias({
-		// 	entries: [
-		// 		{ find: 'react/hooks', replacement: 'preact/hooks' },
-		// 		{ find: 'react', replacement: 'preact/compat' },
-		// 		{ find: 'react-dom', replacement: 'preact/compat' }
-		// 	]
-		// }),
+		alias({
+			entries: [
+				{ find: 'react/hooks', replacement: 'preact/hooks' },
+				{ find: 'react', replacement: 'preact/compat' },
+				{ find: 'react-dom', replacement: 'preact/compat' }
+			]
+		}),
 		resolve({
 			browser: true,
 			extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
