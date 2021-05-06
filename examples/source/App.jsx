@@ -3,7 +3,7 @@ import { useState } from 'preact/hooks'
 
 import { styled, css, setup } from 'goober';
 
-import { useStore, initStore } from "./store/state";
+import { useStore, initStore } from "./state";
 import Button from "./button";
 
 

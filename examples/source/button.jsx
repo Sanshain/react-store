@@ -1,14 +1,14 @@
 import { h, Fragment } from 'preact'
 import { useState } from 'preact/hooks'
 
-import { useStore } from "./store/state";
+import { useStore } from "./state";
 
 
 const Button = props => {
 
 	const [text] = useState('minus')
 	
-	const [count, setCount] = useStore('count', 0)
+	const [count, setCount] = useStore('count')
 
 	// const { dispatch, count } = useStoreon('count')
 

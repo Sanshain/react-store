@@ -6,7 +6,7 @@ import App from './App'
 // import App from "./components/app";
 // import App from './TSApp'
 
-import { initStore } from "./store/state";
+import { initStore } from "./state";
 
 initStore({
 	count: 9
