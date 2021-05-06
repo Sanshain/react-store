@@ -1,7 +1,7 @@
 
 // //@ts-check
 
-import { useState } from 'react/hooks'
+import { useState } from 'preact/hooks'
 
 
 let states = {};
