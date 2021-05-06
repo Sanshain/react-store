@@ -575,16 +575,15 @@
 `;
 
 	const App = props => {
-	  const [message] = l('Preact App');
-	  const [count, setCount] = useStore('count'); // const { dispatch, count } = useStoreon('count')
-
+	  const [message] = l('State manager working example:');
+	  const [count, setCount] = useStore('count');
 	  return a(y, null, a("header", null), a("main", {
 	    class: BtnClassName
 	  }, a("h1", {
 	    class: "title"
-	  }, message), a("button", {
+	  }, message), a("p", null, "works w/o props transfers"), a("button", {
 	    onClick: e => setCount(count + 1)
-	  }, count)), a(Button, null), a(Title, null, "789"));
+	  }, "Plus (", count, ")")), a(Button, null));
 	};
 
 	initStore({

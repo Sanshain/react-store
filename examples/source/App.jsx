@@ -24,23 +24,20 @@ const BtnClassName = css`
 
 const App = props => {
 
-	const [message] = useState('Preact App')
+	const [message] = useState('State manager working example:')
 
 	const [count, setCount] = useStore('count')
-
-	// const { dispatch, count } = useStoreon('count')
-
 
 	return <>
 		<header />
 		<main class={BtnClassName}>
 			<h1 class='title'>{message}</h1>
+			<p>works w/o props transfers</p>
 			<button onClick={(e) => setCount(count + 1)}>
-				{count}
+				Plus ({count})
 			</button>
 		</main>
-		<Button />		
-		<Title>789</Title>
+		<Button />				
 	</>
 }
 
