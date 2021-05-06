@@ -18,7 +18,7 @@ export default {
 		file: `./release/state.js`,
 		format: 'iife',
 		sourcemap: true,
-		// name: 'states'
+		name: 'states'
 	},
 	plugins: [
 		alias({
@@ -40,7 +40,7 @@ export default {
 		// }),				
 		commonjs(),
 		// es3(),
-		// release && terser()
+		release && terser()
 	]
 }
 
