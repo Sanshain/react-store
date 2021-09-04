@@ -5,9 +5,21 @@
 
 import { useState } from 'preact/hooks'
 
-let globaState = null;
 
+let globaState = null;
 let states = {};
+
+
+export const store = Object.freeze({
+	get: () => {
+		let keys = {}
+		for (const key in states) {
+			keys[key] = key
+		}
+		return keys;
+	}
+})
+
 
 /**
  * @param {string | number} key

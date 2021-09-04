@@ -9,14 +9,22 @@ type UseState = (<S>(initialState: S | (() => S)) => [S, StateUpdater<S>])
 
 declare global {
 	interface Store{
-
+		// ww: number,
+		// cc: string
+	}	
+	const store: {
+		get: <T extends keyof Store>() => {
+			[K in T]: T
+		}
 	}	
 }
 
 
 declare let globaState: <S>(initialState: S | (() => S)) => [S, StateUpdater<S>];
 
-declare let states: object;
+declare let states: {
+	[K: string]: UseState
+};
 
 /**
  * @param {string | number} key

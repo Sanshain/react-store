@@ -9,7 +9,12 @@ import { styled, css, setup } from 'goober';
 import Button from "./button";
 import { useStateStore, useStore } from '../../source/state';
 
-
+// declare global{
+// 	interface Store{
+// 		count?: number,
+// 		message?: string
+// 	}
+// } 
 
 
 setup(h);
@@ -29,8 +34,11 @@ const App = props => {
 	const [message] = useState('State manager working example:')	
 
 	// const useStore = useStateStore(useState);
+	// const [msg] = useStore(store.get().message)
+
 
 	const [count, setCount] = useStore('count')
+	
 
 	return <>
 		<header />
