@@ -9,9 +9,10 @@ import App from './App'
 // import App from './TSApp'
 
 import { initStore } from "../../source/state";
+import { useState } from 'preact/hooks';
 
 initStore({
-	count: 9
-})
+	count: 10
+}, useState)
 
 render(<App/>, document.getElementById('root'))

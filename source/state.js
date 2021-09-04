@@ -5,6 +5,7 @@
 
 import { useState } from 'preact/hooks'
 
+let globaState = null;
 
 let states = {};
 
@@ -40,7 +41,7 @@ export function useStateStore(_useState)
  */
 export function useStore(key, init_value, uState){
 
-	const [value, setValue] = (uState || useState)(
+	const [value, setValue] = (uState || globaState || useState)(
 		init_value !== undefined ? init_value : (states[key] || {}).initState
 	)
 
@@ -59,7 +60,7 @@ export function useStore(key, init_value, uState){
 /**
  * @param {{ [x: string]: any; count?: number; }} init_dict
  */
-export function initStore(init_dict){
+export function initStore(init_dict, _useState){
 
 	for (const key in init_dict) {
 		states[key] = {
@@ -67,4 +68,6 @@ export function initStore(init_dict){
 			initState: init_dict[key]			
 		}
 	}
+
+	globaState = _useState;
 }

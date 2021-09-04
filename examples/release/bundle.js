@@ -899,6 +899,7 @@
 	}
 
 	//@ts-check
+	let globaState = null;
 	let states = {};
 	/**
 	 * @param {string | number} key
@@ -911,27 +912,13 @@
 	    hook(value);
 	  }
 	} // export const useStateStore = (us) => (key, initValue) => useStore(key, initValue, us)
-
-	/**
-	 * @param {any} _useState
-	 */
-
-	function useStateStore(_useState) {
-	  return function (
-	  /** @type {any} */
-	  key,
-	  /** @type {any} */
-	  init_value) {
-	    return useStore(key, init_value, _useState);
-	  };
-	}
 	/**
 	 * @param {string} key
 	 * @param {any} init_value
 	 */
 
 	function useStore(key, init_value, uState) {
-	  const [value, setValue] = (uState || m$4)(init_value !== undefined ? init_value : (states[key] || {}).initState);
+	  const [value, setValue] = (uState || globaState || m$4)(init_value !== undefined ? init_value : (states[key] || {}).initState);
 
 	  if (key in states) {
 	    !~states[key].hooks.indexOf(setValue) && states[key].hooks.push(setValue);
@@ -946,20 +933,22 @@
 	 * @param {{ [x: string]: any; count?: number; }} init_dict
 	 */
 
-	function initStore(init_dict) {
+	function initStore(init_dict, _useState) {
 	  for (const key in init_dict) {
 	    states[key] = {
 	      hooks: [],
 	      initState: init_dict[key]
 	    };
 	  }
+
+	  globaState = _useState;
 	}
 
 	//@ts-check
 
 	const Button = props => {
-	  const [text] = l$1('minus');
-	  const useStore = useStateStore(l$1);
+	  const [text] = l$1('minus'); // const useStore = useStateStore(useState);
+
 	  const [count, setCount] = useStore('count'); // const { dispatch, count } = useStoreon('count')
 
 	  return v(d, null, v("hr", null), v("div", null, v("button", {
@@ -978,22 +967,22 @@
 `;
 
 	const App = props => {
-	  const [message] = l$1('State manager working example:');
-	  const useStore = useStateStore(l$1);
+	  const [message] = l$1('State manager working example:'); // const useStore = useStateStore(useState);
+
 	  const [count, setCount] = useStore('count');
 	  return v(d, null, v("header", null), v("main", {
 	    className: BtnClassName
 	  }, v("h1", {
 	    className: "title"
 	  }, message), v("p", null, "works w/o props transfers"), v("button", {
-	    onClick: e => 'setCount(count + 1)'
+	    onClick: e => setCount(count + 1)
 	  }, "Plus (", count, ")")), v(Button, null));
 	};
 
 	//@ts-check
 	initStore({
-	  count: 9
-	});
+	  count: 10
+	}, l$1);
 	S(v(App, null), document.getElementById('root'));
 
 }());
