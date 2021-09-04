@@ -12,7 +12,7 @@ const Button = props => {
 
 	// const useStore = useStateStore(useState);
 	
-	const [count, setCount] = useStore('count')
+	const [count, setCount] = useStore<number>('count')
 
 	// const { dispatch, count } = useStoreon('count')
 

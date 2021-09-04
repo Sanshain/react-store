@@ -53,6 +53,7 @@ export default {
 				{ find: 'react-dom', replacement: 'preact/compat' }
 			]
 		}),
+		typescript(),
 		resolve({
 			browser: true,
 			extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.mjs']
