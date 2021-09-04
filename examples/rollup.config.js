@@ -56,12 +56,12 @@ export default {
 			browser: true,
 			extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
 		}),
-		development && serve({
-			open: true,
-			port: 3000,
-			contentBase: dist,
-			historyApiFallback: true
-		}),
+		// development && serve({
+		// 	open: true,
+		// 	port: 3000,
+		// 	contentBase: '',
+		// 	historyApiFallback: true
+		// }),
 		// development && livereload({
 		// 	watch: dist
 		// }),
@@ -80,7 +80,7 @@ export default {
 			minimize: production,
 			modules: true
 		}),
-		production && terser()
+		// production && terser()
 	]
 }
 

@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "preact-rollup",
+  "name": "pre-store",
   "version": "1.0.0",
-  "description": "Preact + Rollup template.",
+  "description": "Preact + Rollup template with pre-store state manager",
   "main": "src/index.js",
   "author": "Alex",
   "license": "MIT",
@@ -13,9 +13,9 @@
     "build": "rollup -c",
     "serve": "serve release"
   },
-  "workspaces":[
-	  "./source/store/*",
-	  "!source/store/examples/**"
+  "workspaces": [
+    "./source/store/*",
+    "!source/store/examples/**"
   ],
   "devDependencies": {
     "@babel/core": "^7.10.5",

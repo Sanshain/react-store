@@ -1,6 +1,6 @@
+//@ts-check
 
-// //@ts-check
-
+// @ts-ignore
 import { useState } from 'react/hooks'
 
 
@@ -39,4 +39,3 @@ export function initStore(init_dict){
 		}
 	}
 }
-

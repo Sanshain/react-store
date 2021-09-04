@@ -1,3 +1,5 @@
+//@ts-check
+
 import './style.css'
 
 import { h, render } from 'preact'
@@ -6,10 +8,10 @@ import App from './App'
 // import App from "./components/app";
 // import App from './TSApp'
 
-import { initStore } from "./state";
+// import { initStore } from "../../source/state";
 
-initStore({
-	count: 9
-})
+// initStore({
+// 	count: 9
+// })
 
 render(<App/>, document.getElementById('root'))
