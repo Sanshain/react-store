@@ -1,4 +1,4 @@
-# react-store
+# reactive-store (Xi-store)
 
 Tiny state manager for react/preact programming infrastructure. Inspired by [storeon](https://github.com/storeon/storeon)
 
@@ -10,7 +10,13 @@ Tiny state manager for react/preact programming infrastructure. Inspired by [sto
   
   
  ## get started: 
- 
+
+```
+npm i xi-store
+```
+
+or
+
 ```
 npm install https://github.com/Sanshain/react-store.git
 ```
