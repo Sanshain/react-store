@@ -5,7 +5,7 @@ import { useState } from 'preact/hooks'
 
 import { styled, css, setup } from 'goober';
 
-import { useStore, initStore } from "../../source/state";
+// import { useStore, initStore } from "../../source/state";
 import Button from "./button";
 
 
@@ -33,7 +33,7 @@ const App = props => {
 	return <>
 		<header />
 		<main className={BtnClassName}>
-			<h1 className='title'>{message}</h1>
+			<h1 className='title'>{'message'}</h1>
 			<p>works w/o props transfers</p>
 			<button onClick={(e) => 'setCount(count + 1)'}>
 				Plus ({'count'})
