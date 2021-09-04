@@ -3,6 +3,7 @@ import babel from 'rollup-plugin-babel'
 
 import { terser } from 'rollup-plugin-terser'
 import resolve from 'rollup-plugin-node-resolve'
+// import resolve from '@rollup/plugin-node-resolve'
 import livereload from 'rollup-plugin-livereload'
 import serve from 'rollup-plugin-serve'
 import typescript from 'rollup-plugin-typescript2';
@@ -54,12 +55,12 @@ export default {
 		}),
 		resolve({
 			browser: true,
-			extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
+			extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.mjs']
 		}),
 		// development && serve({
 		// 	open: true,
 		// 	port: 3000,
-		// 	contentBase: '',
+		// 	contentBase: '.',
 		// 	historyApiFallback: true
 		// }),
 		// development && livereload({

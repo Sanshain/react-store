@@ -7,6 +7,7 @@ import { styled, css, setup } from 'goober';
 
 // import { useStore, initStore } from "../../source/state";
 import Button from "./button";
+import { useStateStore } from '../../source/state';
 
 
 
@@ -28,15 +29,17 @@ const App = props => {
 
 	const [message] = useState('State manager working example:')
 
-	// const [count, setCount] = useStore('count')
+	const useStore = useStateStore(useState);
+
+	const [count, setCount] = useStore('count')
 
 	return <>
 		<header />
 		<main className={BtnClassName}>
-			<h1 className='title'>{'message'}</h1>
+			<h1 className='title'>{message}</h1>
 			<p>works w/o props transfers</p>
 			<button onClick={(e) => 'setCount(count + 1)'}>
-				Plus ({'count'})
+				Plus ({count})
 			</button>
 		</main>
 		<Button />				

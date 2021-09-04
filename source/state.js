@@ -1,11 +1,17 @@
 //@ts-check
 
 // @ts-ignore
-import { useState } from 'react/hooks'
+// import { useState } from 'react/hooks'
+
+import { useState } from 'preact/hooks'
 
 
 let states = {};
 
+/**
+ * @param {string | number} key
+ * @param {any} value
+ */
 export function setState(key, value){
 
 	for (const hook of states[key].hooks) {
@@ -15,9 +21,29 @@ export function setState(key, value){
 	}
 }
 
-export function useStore(key, init_value){
+// export const useStateStore = (us) => (key, initValue) => useStore(key, initValue, us)
 
-	const [value, setValue] = useState(init_value !== undefined ? init_value : (states[key] || {}).initState)
+/**
+ * @param {any} _useState
+ */
+export function useStateStore(_useState)
+{
+	return function(/** @type {any} */ key, /** @type {any} */ init_value)
+	{
+		return useStore(key, init_value, _useState)
+	}
+}
+
+/**
+ * @param {string} key
+ * @param {any} init_value
+ */
+export function useStore(key, init_value, uState){
+
+	const [value, setValue] = (uState || useState)(
+		init_value !== undefined ? init_value : (states[key] || {}).initState
+	)
+
 	if (key in states){
 		
 		!~states[key].hooks.indexOf(setValue) && states[key].hooks.push(setValue);
@@ -30,6 +56,9 @@ export function useStore(key, init_value){
 	return [value, setState.bind(null, key)]
 }
 
+/**
+ * @param {{ [x: string]: any; count?: number; }} init_dict
+ */
 export function initStore(init_dict){
 
 	for (const key in init_dict) {

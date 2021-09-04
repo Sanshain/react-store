@@ -524,15 +524,447 @@
 	  };
 	}
 
+	var n$2,
+	    u$3,
+	    i$2,
+	    t$3,
+	    o$3,
+	    f$3 = {},
+	    e$3 = [],
+	    c$3 = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
+
+	function s$2(n, l) {
+	  for (var u in l) n[u] = l[u];
+
+	  return n;
+	}
+
+	function a$3(n) {
+	  var l = n.parentNode;
+	  l && l.removeChild(n);
+	}
+
+	function h$2(l, u, i, t, r) {
+	  var o = {
+	    type: l,
+	    props: u,
+	    key: i,
+	    ref: t,
+	    __k: null,
+	    __: null,
+	    __b: 0,
+	    __e: null,
+	    __d: void 0,
+	    __c: null,
+	    constructor: void 0,
+	    __v: r
+	  };
+	  return null == r && (o.__v = o), n$2.vnode && n$2.vnode(o), o;
+	}
+
+	function p$2(n) {
+	  return n.children;
+	}
+
+	function d$2(n, l) {
+	  this.props = n, this.context = l;
+	}
+
+	function _$1(n, l) {
+	  if (null == l) return n.__ ? _$1(n.__, n.__.__k.indexOf(n) + 1) : null;
+
+	  for (var u; l < n.__k.length; l++) if (null != (u = n.__k[l]) && null != u.__e) return u.__e;
+
+	  return "function" == typeof n.type ? _$1(n) : null;
+	}
+
+	function k$1(n) {
+	  var l, u;
+
+	  if (null != (n = n.__) && null != n.__c) {
+	    for (n.__e = n.__c.base = null, l = 0; l < n.__k.length; l++) if (null != (u = n.__k[l]) && null != u.__e) {
+	      n.__e = n.__c.base = u.__e;
+	      break;
+	    }
+
+	    return k$1(n);
+	  }
+	}
+
+	function w$2(l) {
+	  (!l.__d && (l.__d = !0) && u$3.push(l) && !m$3.__r++ || t$3 !== n$2.debounceRendering) && ((t$3 = n$2.debounceRendering) || i$2)(m$3);
+	}
+
+	function m$3() {
+	  for (var n; m$3.__r = u$3.length;) n = u$3.sort(function (n, l) {
+	    return n.__v.__b - l.__v.__b;
+	  }), u$3 = [], n.some(function (n) {
+	    var l, u, i, t, r, o, f;
+	    n.__d && (o = (r = (l = n).__v).__e, (f = l.__P) && (u = [], (i = s$2({}, r)).__v = i, t = T$1(f, r, i, l.__n, void 0 !== f.ownerSVGElement, null, u, null == o ? _$1(r) : o), $$1(u, r), t != o && k$1(r)));
+	  });
+	}
+
+	function g$3(n, l, u, i, t, r, o, c, s, v) {
+	  var y,
+	      d,
+	      k,
+	      w,
+	      m,
+	      g,
+	      b,
+	      A = i && i.__k || e$3,
+	      P = A.length;
+
+	  for (s == f$3 && (s = null != o ? o[0] : P ? _$1(i, 0) : null), u.__k = [], y = 0; y < l.length; y++) if (null != (w = u.__k[y] = null == (w = l[y]) || "boolean" == typeof w ? null : "string" == typeof w || "number" == typeof w ? h$2(null, w, null, null, w) : Array.isArray(w) ? h$2(p$2, {
+	    children: w
+	  }, null, null, null) : null != w.__e || null != w.__c ? h$2(w.type, w.props, w.key, null, w.__v) : w)) {
+	    if (w.__ = u, w.__b = u.__b + 1, null === (k = A[y]) || k && w.key == k.key && w.type === k.type) A[y] = void 0;else for (d = 0; d < P; d++) {
+	      if ((k = A[d]) && w.key == k.key && w.type === k.type) {
+	        A[d] = void 0;
+	        break;
+	      }
+
+	      k = null;
+	    }
+	    m = T$1(n, w, k = k || f$3, t, r, o, c, s, v), (d = w.ref) && k.ref != d && (b || (b = []), k.ref && b.push(k.ref, null, w), b.push(d, w.__c || m, w)), null != m ? (null == g && (g = m), s = x$2(n, w, k, A, o, m, s), "option" == u.type ? n.value = "" : "function" == typeof u.type && (u.__d = s)) : s && k.__e == s && s.parentNode != n && (s = _$1(k));
+	  }
+
+	  if (u.__e = g, null != o && "function" != typeof u.type) for (y = o.length; y--;) null != o[y] && a$3(o[y]);
+
+	  for (y = P; y--;) null != A[y] && I$1(A[y], A[y]);
+
+	  if (b) for (y = 0; y < b.length; y++) H$1(b[y], b[++y], b[++y]);
+	}
+
+	function x$2(n, l, u, i, t, r, o) {
+	  var f, e, c;
+	  if (void 0 !== l.__d) f = l.__d, l.__d = void 0;else if (t == u || r != o || null == r.parentNode) n: if (null == o || o.parentNode !== n) n.appendChild(r), f = null;else {
+	    for (e = o, c = 0; (e = e.nextSibling) && c < i.length; c += 2) if (e == r) break n;
+
+	    n.insertBefore(r, o), f = o;
+	  }
+	  return void 0 !== f ? f : r.nextSibling;
+	}
+
+	function A(n, l, u, i, t) {
+	  var r;
+
+	  for (r in u) "children" === r || "key" === r || r in l || C$1(n, r, null, u[r], i);
+
+	  for (r in l) t && "function" != typeof l[r] || "children" === r || "key" === r || "value" === r || "checked" === r || u[r] === l[r] || C$1(n, r, l[r], u[r], i);
+	}
+
+	function P$1(n, l, u) {
+	  "-" === l[0] ? n.setProperty(l, u) : n[l] = "number" == typeof u && !1 === c$3.test(l) ? u + "px" : null == u ? "" : u;
+	}
+
+	function C$1(n, l, u, i, t) {
+	  var r, o, f, e, c;
+	  if (t ? "className" === l && (l = "class") : "class" === l && (l = "className"), "style" === l) {
+	    if (r = n.style, "string" == typeof u) r.cssText = u;else {
+	      if ("string" == typeof i && (r.cssText = "", i = null), i) for (e in i) u && e in u || P$1(r, e, "");
+	      if (u) for (c in u) i && u[c] === i[c] || P$1(r, c, u[c]);
+	    }
+	  } else "o" === l[0] && "n" === l[1] ? (o = l !== (l = l.replace(/Capture$/, "")), f = l.toLowerCase(), l = (f in n ? f : l).slice(2), u ? (i || n.addEventListener(l, N$1, o), (n.l || (n.l = {}))[l] = u) : n.removeEventListener(l, N$1, o)) : "list" !== l && "tagName" !== l && "form" !== l && "type" !== l && "size" !== l && !t && l in n ? n[l] = null == u ? "" : u : "function" != typeof u && "dangerouslySetInnerHTML" !== l && (l !== (l = l.replace(/^xlink:?/, "")) ? null == u || !1 === u ? n.removeAttributeNS("http://www.w3.org/1999/xlink", l.toLowerCase()) : n.setAttributeNS("http://www.w3.org/1999/xlink", l.toLowerCase(), u) : null == u || !1 === u && !/^ar/.test(l) ? n.removeAttribute(l) : n.setAttribute(l, u));
+	}
+
+	function N$1(l) {
+	  this.l[l.type](n$2.event ? n$2.event(l) : l);
+	}
+
+	function z$1(n, l, u) {
+	  var i, t;
+
+	  for (i = 0; i < n.__k.length; i++) (t = n.__k[i]) && (t.__ = n, t.__e && ("function" == typeof t.type && t.__k.length > 1 && z$1(t, l, u), l = x$2(u, t, t, n.__k, null, t.__e, l), "function" == typeof n.type && (n.__d = l)));
+	}
+
+	function T$1(l, u, i, t, r, o, f, e, c) {
+	  var a,
+	      v,
+	      h,
+	      y,
+	      _,
+	      k,
+	      w,
+	      m,
+	      b,
+	      x,
+	      A,
+	      P = u.type;
+
+	  if (void 0 !== u.constructor) return null;
+	  (a = n$2.__b) && a(u);
+
+	  try {
+	    n: if ("function" == typeof P) {
+	      if (m = u.props, b = (a = P.contextType) && t[a.__c], x = a ? b ? b.props.value : a.__ : t, i.__c ? w = (v = u.__c = i.__c).__ = v.__E : ("prototype" in P && P.prototype.render ? u.__c = v = new P(m, x) : (u.__c = v = new d$2(m, x), v.constructor = P, v.render = L$1), b && b.sub(v), v.props = m, v.state || (v.state = {}), v.context = x, v.__n = t, h = v.__d = !0, v.__h = []), null == v.__s && (v.__s = v.state), null != P.getDerivedStateFromProps && (v.__s == v.state && (v.__s = s$2({}, v.__s)), s$2(v.__s, P.getDerivedStateFromProps(m, v.__s))), y = v.props, _ = v.state, h) null == P.getDerivedStateFromProps && null != v.componentWillMount && v.componentWillMount(), null != v.componentDidMount && v.__h.push(v.componentDidMount);else {
+	        if (null == P.getDerivedStateFromProps && m !== y && null != v.componentWillReceiveProps && v.componentWillReceiveProps(m, x), !v.__e && null != v.shouldComponentUpdate && !1 === v.shouldComponentUpdate(m, v.__s, x) || u.__v === i.__v) {
+	          v.props = m, v.state = v.__s, u.__v !== i.__v && (v.__d = !1), v.__v = u, u.__e = i.__e, u.__k = i.__k, v.__h.length && f.push(v), z$1(u, e, l);
+	          break n;
+	        }
+
+	        null != v.componentWillUpdate && v.componentWillUpdate(m, v.__s, x), null != v.componentDidUpdate && v.__h.push(function () {
+	          v.componentDidUpdate(y, _, k);
+	        });
+	      }
+	      v.context = x, v.props = m, v.state = v.__s, (a = n$2.__r) && a(u), v.__d = !1, v.__v = u, v.__P = l, a = v.render(v.props, v.state, v.context), v.state = v.__s, null != v.getChildContext && (t = s$2(s$2({}, t), v.getChildContext())), h || null == v.getSnapshotBeforeUpdate || (k = v.getSnapshotBeforeUpdate(y, _)), A = null != a && a.type == p$2 && null == a.key ? a.props.children : a, g$3(l, Array.isArray(A) ? A : [A], u, i, t, r, o, f, e, c), v.base = u.__e, v.__h.length && f.push(v), w && (v.__E = v.__ = null), v.__e = !1;
+	    } else null == o && u.__v === i.__v ? (u.__k = i.__k, u.__e = i.__e) : u.__e = j$2(i.__e, u, i, t, r, o, f, c);
+
+	    (a = n$2.diffed) && a(u);
+	  } catch (l) {
+	    u.__v = null, n$2.__e(l, u, i);
+	  }
+
+	  return u.__e;
+	}
+
+	function $$1(l, u) {
+	  n$2.__c && n$2.__c(u, l), l.some(function (u) {
+	    try {
+	      l = u.__h, u.__h = [], l.some(function (n) {
+	        n.call(u);
+	      });
+	    } catch (l) {
+	      n$2.__e(l, u.__v);
+	    }
+	  });
+	}
+
+	function j$2(n, l, u, i, t, r, o, c) {
+	  var s,
+	      a,
+	      v,
+	      h,
+	      y,
+	      p = u.props,
+	      d = l.props;
+	  if (t = "svg" === l.type || t, null != r) for (s = 0; s < r.length; s++) if (null != (a = r[s]) && ((null === l.type ? 3 === a.nodeType : a.localName === l.type) || n == a)) {
+	    n = a, r[s] = null;
+	    break;
+	  }
+
+	  if (null == n) {
+	    if (null === l.type) return document.createTextNode(d);
+	    n = t ? document.createElementNS("http://www.w3.org/2000/svg", l.type) : document.createElement(l.type, d.is && {
+	      is: d.is
+	    }), r = null, c = !1;
+	  }
+
+	  if (null === l.type) p !== d && n.data != d && (n.data = d);else {
+	    if (null != r && (r = e$3.slice.call(n.childNodes)), v = (p = u.props || f$3).dangerouslySetInnerHTML, h = d.dangerouslySetInnerHTML, !c) {
+	      if (null != r) for (p = {}, y = 0; y < n.attributes.length; y++) p[n.attributes[y].name] = n.attributes[y].value;
+	      (h || v) && (h && v && h.__html == v.__html || (n.innerHTML = h && h.__html || ""));
+	    }
+
+	    A(n, d, p, t, c), h ? l.__k = [] : (s = l.props.children, g$3(n, Array.isArray(s) ? s : [s], l, u, i, "foreignObject" !== l.type && t, r, o, f$3, c)), c || ("value" in d && void 0 !== (s = d.value) && s !== n.value && C$1(n, "value", s, p.value, !1), "checked" in d && void 0 !== (s = d.checked) && s !== n.checked && C$1(n, "checked", s, p.checked, !1));
+	  }
+	  return n;
+	}
+
+	function H$1(l, u, i) {
+	  try {
+	    "function" == typeof l ? l(u) : l.current = u;
+	  } catch (l) {
+	    n$2.__e(l, i);
+	  }
+	}
+
+	function I$1(l, u, i) {
+	  var t, r, o;
+
+	  if (n$2.unmount && n$2.unmount(l), (t = l.ref) && (t.current && t.current !== l.__e || H$1(t, null, u)), i || "function" == typeof l.type || (i = null != (r = l.__e)), l.__e = l.__d = void 0, null != (t = l.__c)) {
+	    if (t.componentWillUnmount) try {
+	      t.componentWillUnmount();
+	    } catch (l) {
+	      n$2.__e(l, u);
+	    }
+	    t.base = t.__P = null;
+	  }
+
+	  if (t = l.__k) for (o = 0; o < t.length; o++) t[o] && I$1(t[o], u, i);
+	  null != r && a$3(r);
+	}
+
+	function L$1(n, l, u) {
+	  return this.constructor(n, u);
+	}
+
+	n$2 = {
+	  __e: function (n, l) {
+	    for (var u, i; l = l.__;) if ((u = l.__c) && !u.__) try {
+	      if (u.constructor && null != u.constructor.getDerivedStateFromError && (i = !0, u.setState(u.constructor.getDerivedStateFromError(n))), null != u.componentDidCatch && (i = !0, u.componentDidCatch(n)), i) return w$2(u.__E = u);
+	    } catch (l) {
+	      n = l;
+	    }
+
+	    throw n;
+	  }
+	}, d$2.prototype.setState = function (n, l) {
+	  var u;
+	  u = this.__s !== this.state ? this.__s : this.__s = s$2({}, this.state), "function" == typeof n && (n = n(u, this.props)), n && s$2(u, n), null != n && this.__v && (l && this.__h.push(l), w$2(this));
+	}, d$2.prototype.forceUpdate = function (n) {
+	  this.__v && (this.__e = !0, n && this.__h.push(n), w$2(this));
+	}, d$2.prototype.render = p$2, u$3 = [], i$2 = "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, m$3.__r = 0, o$3 = 0;
+
+	var t$4,
+	    u$4,
+	    r$2,
+	    o$4 = 0,
+	    i$3 = [],
+	    c$4 = n$2.__r,
+	    f$4 = n$2.diffed,
+	    e$4 = n$2.__c,
+	    a$4 = n$2.unmount;
+
+	function v$2(t, r) {
+	  n$2.__h && n$2.__h(u$4, t, o$4 || r), o$4 = 0;
+	  var i = u$4.__H || (u$4.__H = {
+	    __: [],
+	    __h: []
+	  });
+	  return t >= i.__.length && i.__.push({}), i.__[t];
+	}
+
+	function m$4(n) {
+	  return o$4 = 1, p$3(k$2, n);
+	}
+
+	function p$3(n, r, o) {
+	  var i = v$2(t$4++, 2);
+	  return i.t = n, i.__c || (i.__c = u$4, i.__ = [o ? o(r) : k$2(void 0, r), function (n) {
+	    var t = i.t(i.__[0], n);
+	    i.__[0] !== t && (i.__ = [t, i.__[1]], i.__c.setState({}));
+	  }]), i.__;
+	}
+
+	function q() {
+	  i$3.some(function (t) {
+	    if (t.__P) try {
+	      t.__H.__h.forEach(b$3), t.__H.__h.forEach(g$4), t.__H.__h = [];
+	    } catch (u) {
+	      return t.__H.__h = [], n$2.__e(u, t.__v), !0;
+	    }
+	  }), i$3 = [];
+	}
+
+	n$2.__r = function (n) {
+	  c$4 && c$4(n), t$4 = 0;
+	  var r = (u$4 = n.__c).__H;
+	  r && (r.__h.forEach(b$3), r.__h.forEach(g$4), r.__h = []);
+	}, n$2.diffed = function (t) {
+	  f$4 && f$4(t);
+	  var u = t.__c;
+	  u && u.__H && u.__H.__h.length && (1 !== i$3.push(u) && r$2 === n$2.requestAnimationFrame || ((r$2 = n$2.requestAnimationFrame) || function (n) {
+	    var t,
+	        u = function () {
+	      clearTimeout(r), x$3 && cancelAnimationFrame(t), setTimeout(n);
+	    },
+	        r = setTimeout(u, 100);
+
+	    x$3 && (t = requestAnimationFrame(u));
+	  })(q));
+	}, n$2.__c = function (t, u) {
+	  u.some(function (t) {
+	    try {
+	      t.__h.forEach(b$3), t.__h = t.__h.filter(function (n) {
+	        return !n.__ || g$4(n);
+	      });
+	    } catch (r) {
+	      u.some(function (n) {
+	        n.__h && (n.__h = []);
+	      }), u = [], n$2.__e(r, t.__v);
+	    }
+	  }), e$4 && e$4(t, u);
+	}, n$2.unmount = function (t) {
+	  a$4 && a$4(t);
+	  var u = t.__c;
+	  if (u && u.__H) try {
+	    u.__H.__.forEach(b$3);
+	  } catch (t) {
+	    n$2.__e(t, u.__v);
+	  }
+	};
+	var x$3 = "function" == typeof requestAnimationFrame;
+
+	function b$3(n) {
+	  "function" == typeof n.u && n.u();
+	}
+
+	function g$4(n) {
+	  n.u = n.__();
+	}
+
+	function k$2(n, t) {
+	  return "function" == typeof t ? t(n) : t;
+	}
+
+	//@ts-check
+	let states = {};
+	/**
+	 * @param {string | number} key
+	 * @param {any} value
+	 */
+
+	function setState(key, value) {
+	  for (const hook of states[key].hooks) {
+	    // console.log(hook);
+	    hook(value);
+	  }
+	} // export const useStateStore = (us) => (key, initValue) => useStore(key, initValue, us)
+
+	/**
+	 * @param {any} _useState
+	 */
+
+	function useStateStore(_useState) {
+	  return function (
+	  /** @type {any} */
+	  key,
+	  /** @type {any} */
+	  init_value) {
+	    return useStore(key, init_value, _useState);
+	  };
+	}
+	/**
+	 * @param {string} key
+	 * @param {any} init_value
+	 */
+
+	function useStore(key, init_value, uState) {
+	  const [value, setValue] = (uState || m$4)(init_value !== undefined ? init_value : (states[key] || {}).initState);
+
+	  if (key in states) {
+	    !~states[key].hooks.indexOf(setValue) && states[key].hooks.push(setValue);
+	  } else states[key] = {
+	    hooks: [setValue],
+	    initState: init_value
+	  };
+
+	  return [value, setState.bind(null, key)];
+	}
+	/**
+	 * @param {{ [x: string]: any; count?: number; }} init_dict
+	 */
+
+	function initStore(init_dict) {
+	  for (const key in init_dict) {
+	    states[key] = {
+	      hooks: [],
+	      initState: init_dict[key]
+	    };
+	  }
+	}
+
 	//@ts-check
 
 	const Button = props => {
-	  const [text] = l$1('minus'); // const [count, setCount] = useStore('count')
-	  // const { dispatch, count } = useStoreon('count')
+	  const [text] = l$1('minus');
+	  const useStore = useStateStore(l$1);
+	  const [count, setCount] = useStore('count'); // const { dispatch, count } = useStoreon('count')
 
 	  return v(d, null, v("hr", null), v("div", null, v("button", {
-	    onClick: e => 'setCount(count - 1)'
-	  }, text, " (", 'count', ")")));
+	    onClick: e => setCount(count - 1)
+	  }, text, " (", count, ")")));
 	};
 
 	//@ts-check
@@ -546,24 +978,22 @@
 `;
 
 	const App = props => {
-	  const [message] = l$1('State manager working example:'); // const [count, setCount] = useStore('count')
-
+	  const [message] = l$1('State manager working example:');
+	  const useStore = useStateStore(l$1);
+	  const [count, setCount] = useStore('count');
 	  return v(d, null, v("header", null), v("main", {
 	    className: BtnClassName
 	  }, v("h1", {
 	    className: "title"
-	  }, 'message'), v("p", null, "works w/o props transfers"), v("button", {
+	  }, message), v("p", null, "works w/o props transfers"), v("button", {
 	    onClick: e => 'setCount(count + 1)'
-	  }, "Plus (", 'count', ")")), v(Button, null));
+	  }, "Plus (", count, ")")), v(Button, null));
 	};
 
 	//@ts-check
-	// import App from './TSApp'
-	// import { initStore } from "../../source/state";
-	// initStore({
-	// 	count: 9
-	// })
-
+	initStore({
+	  count: 9
+	});
 	S(v(App, null), document.getElementById('root'));
 
 }());
