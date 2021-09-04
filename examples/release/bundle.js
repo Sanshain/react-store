@@ -312,19 +312,49 @@
       this.__v && (this.__e = !0, n && this.__h.push(n), m(this));
     }, _.prototype.render = d, t = [], o = "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, g.__r = 0, f = 0;
 
+    var o$1 = 0;
+
+    function e$1(_, e, n, t, f) {
+      var l$1,
+          s,
+          u = {};
+
+      for (s in e) "ref" == s ? l$1 = e[s] : u[s] = e[s];
+
+      var a = {
+        type: _,
+        props: u,
+        key: n,
+        ref: l$1,
+        __k: null,
+        __: null,
+        __b: 0,
+        __e: null,
+        __d: void 0,
+        __c: null,
+        __h: null,
+        constructor: void 0,
+        __v: --o$1,
+        __source: t,
+        __self: f
+      };
+      if ("function" == typeof _ && (l$1 = _.defaultProps)) for (s in l$1) void 0 === u[s] && (u[s] = l$1[s]);
+      return l.vnode && l.vnode(a), a;
+    }
+
     var t$1,
         u$1,
         r$1,
-        o$1 = 0,
+        o$2 = 0,
         i = [],
         c$1 = l.__b,
         f$1 = l.__r,
-        e$1 = l.diffed,
+        e$2 = l.diffed,
         a$1 = l.__c,
         v$1 = l.unmount;
 
     function m$1(t, r) {
-      l.__h && l.__h(u$1, t, o$1 || r), o$1 = 0;
+      l.__h && l.__h(u$1, t, o$2 || r), o$2 = 0;
       var i = u$1.__H || (u$1.__H = {
         __: [],
         __h: []
@@ -333,7 +363,7 @@
     }
 
     function l$1(n) {
-      return o$1 = 1, p(w$1, n);
+      return o$2 = 1, p(w$1, n);
     }
 
     function p(n, r, o) {
@@ -361,7 +391,7 @@
       var r = (u$1 = n.__c).__H;
       r && (r.__h.forEach(g$1), r.__h.forEach(j$1), r.__h = []);
     }, l.diffed = function (t) {
-      e$1 && e$1(t);
+      e$2 && e$2(t);
       var o = t.__c;
       o && o.__H && o.__H.__h.length && (1 !== i.push(o) && r$1 === l.requestAnimationFrame || ((r$1 = l.requestAnimationFrame) || function (n) {
         var t,
@@ -409,7 +439,7 @@
       return "function" == typeof t ? t(n) : t;
     }
 
-    let e$2 = {
+    let e$3 = {
       data: ""
     },
         t$2 = t => {
@@ -418,7 +448,7 @@
         return e || (e = (t || document.head).appendChild(document.createElement("style")), e.innerHTML = " ", e.id = "_goober"), e.firstChild;
       }
 
-      return t || e$2;
+      return t || e$3;
     },
         l$2 = /(?:([A-Z0-9-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(})/gi,
         a$2 = /\/\*[\s\S]*?\*\/|\s{2,}|\n/gm,
@@ -435,7 +465,7 @@
 
       return o[0] ? (r = t ? t + "{" + o + "}" : o, l + r + a) : l + a;
     },
-        o$2 = {},
+        o$3 = {},
         c$2 = e => {
       let t = "";
 
@@ -445,7 +475,7 @@
     },
         s$1 = (e, t, r, s, i) => {
       let p = "object" == typeof e ? c$2(e) : e,
-          f = o$2[p] || (o$2[p] = (e => {
+          f = o$3[p] || (o$3[p] = (e => {
         let t = 0,
             r = e.length,
             l = 11;
@@ -455,7 +485,7 @@
         return "go" + l;
       })(p));
 
-      if (!o$2[f]) {
+      if (!o$3[f]) {
         let t = "object" == typeof e ? e : (e => {
           let t,
               r = [{}];
@@ -464,14 +494,14 @@
 
           return r[0];
         })(e);
-        o$2[f] = n$1(i ? {
+        o$3[f] = n$1(i ? {
           ["@keyframes " + f]: t
         } : t, r ? "" : "." + f);
       }
 
       return ((e, t, r) => {
         -1 == t.data.indexOf(e) && (t.data = r ? e + t.data : t.data + e);
-      })(o$2[f], t, s), f;
+      })(o$3[f], t, s), f;
     },
         i$1 = (e, t, r) => e.reduce((e, l, a) => {
       let o = t[a];
@@ -551,36 +581,6 @@
 
       return __assign.apply(this, arguments);
     };
-
-    var o$3 = 0;
-
-    function e$3(_, e, n, t, f) {
-      var l$1,
-          s,
-          u = {};
-
-      for (s in e) "ref" == s ? l$1 = e[s] : u[s] = e[s];
-
-      var a = {
-        type: _,
-        props: u,
-        key: n,
-        ref: l$1,
-        __k: null,
-        __: null,
-        __b: 0,
-        __e: null,
-        __d: void 0,
-        __c: null,
-        __h: null,
-        constructor: void 0,
-        __v: --o$3,
-        __source: t,
-        __self: f
-      };
-      if ("function" == typeof _ && (l$1 = _.defaultProps)) for (s in l$1) void 0 === u[s] && (u[s] = l$1[s]);
-      return l.vnode && l.vnode(a), a;
-    }
 
     var n$2,
         u$3,
@@ -1005,10 +1005,13 @@
     var Button = function (props) {
         var text = l$1('minus')[0];
         // const useStore = useStateStore(useState);
+        // const [count, setCount] = useStore<number>('count')
+        // const [count, setCount] = useStore<Store, 'count'>('count')
+        // const [count, setCount] = useStore<Store>('count')
         var _a = useStore('count'), count = _a[0], setCount = _a[1];
         // const { dispatch, count } = useStoreon('count')
-        return e$3(d, { children: [e$3("hr", {}, void 0),
-                e$3("div", { children: e$3("button", __assign({ onClick: function (e) { return setCount(count - 1); } }, { children: [text, " (", count, ")"] }), void 0) }, void 0)] }, void 0);
+        return e$1(d, { children: [e$1("hr", {}, void 0),
+                e$1("div", { children: e$1("button", __assign({ onClick: function (e) { return setCount(count - 1); } }, { children: [text, " (", count, ")"] }), void 0) }, void 0)] }, void 0);
     };
 
     //@ts-check
@@ -1034,11 +1037,10 @@
       }, "Plus (", count, ")")), v(Button, null));
     };
 
-    //@ts-check
     initStore({
-      count: 10
+        count: 10
     }, l$1);
-    S(v(App, null), document.getElementById('root'));
+    S(e$1(App, {}, void 0), document.getElementById('root'));
 
 }());
 //# sourceMappingURL=bundle.js.map

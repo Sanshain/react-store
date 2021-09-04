@@ -39,7 +39,7 @@ const options = {
 
 
 export default {
-	input: `source/${options.prerender ? options.source.file : 'index'}.js`,
+	input: `source/${options.prerender ? options.source.file : 'index'}.tsx`,
 	output: {
 		file: `${dist}/${options.prerender ? options.target.ssr : 'bundle'}.js`,
 		format: 'iife',

@@ -2,7 +2,7 @@
   "private": true,
   "name": "pre-store",
   "version": "1.0.0",
-  "description": "Preact + Rollup template with pre-store state manager",
+  "description": "xstore. Tiny, powerfull state manager for preact. Compatible with react with typescript support",
   "main": "src/index.js",
   "author": "Alex",
   "license": "MIT",
