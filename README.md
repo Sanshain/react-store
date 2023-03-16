@@ -120,4 +120,4 @@ const Button = props => {
 export default Button
 ```
  
-Look live example   [here](https://sanshain.github.io/react-store/examples/index.html)
+Look live example   [here](https://sanshain.github.io/reactive-store/examples/index.html)
