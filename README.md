@@ -29,7 +29,7 @@ Default state initialization:
 import { initStore } from "states";
 
 initStore({
-	count: 9
+    count: 0
 })
 ```
 
