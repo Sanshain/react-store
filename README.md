@@ -1,6 +1,8 @@
 # reactive-store (Xi-store)
 
-Tiny state manager for react/preact programming infrastructure. Inspired by [storeon](https://github.com/storeon/storeon)
+The simplest tiny **[state manager](https://www.npmjs.com/package/xi-store)** aimed to **react** and **preact** functional infrastructure. Inspired by [storeon](https://github.com/storeon/storeon)
+
+#### Features:
 
 - Based on react/hooks module
 - compact: 
